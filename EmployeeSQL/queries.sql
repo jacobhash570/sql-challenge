@@ -42,11 +42,18 @@
 -- de.dept_no = d.dept_no
 -- where d.dept_name = 'Sales';
 
---sales and development
-select e.emp_no, e.last_name, e.first_name, d.dept_name 
-from employees as e
-left join dept_employees as de on 
-e.emp_no = de.emp_no
-left join departments as d on 
-de.dept_no = d.dept_no
-where d.dept_name = 'Sales' or d.dept_name = 'Development';
+--sales and development(7)
+-- select e.emp_no, e.last_name, e.first_name, d.dept_name 
+-- from employees as e
+-- left join dept_employees as de on 
+-- e.emp_no = de.emp_no
+-- left join departments as d on 
+-- de.dept_no = d.dept_no
+-- where d.dept_name = 'Sales' or d.dept_name = 'Development';
+
+--oder(8)
+select last_name, count(*)
+as "frequency_of_last_names"
+from employees
+group by last_name
+order by "frequency_of_last_names" desc;
