@@ -5,8 +5,17 @@
 -- on e.emp_no = s.emp_no;
 
 --employee hire
-select * from employees;
+-- select * from employees;
 
-select first_name, last_name, hire_date
-from employees
-where hire_date between '1986/1/1' and '1986/12/31';
+-- select first_name, last_name, hire_date
+-- from employees
+-- where hire_date between '1986/1/1' and '1986/12/31';
+
+-- department managers
+select d.dept_no, d.dept_name, m.emp_no, e.last_name, e.first_name
+from departments as d
+left join manager as m
+on d.dept_no = m.dept_no
+left join employees as e
+on m.emp_no = e.emp_no;
+
