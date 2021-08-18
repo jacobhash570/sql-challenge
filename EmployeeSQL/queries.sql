@@ -34,11 +34,19 @@
 -- and e.last_name like 'B%';
 
 --sales(6)
+-- select e.emp_no, e.last_name, e.first_name, d.dept_name 
+-- from employees as e
+-- left join dept_employees as de on 
+-- e.emp_no = de.emp_no
+-- left join departments as d on 
+-- de.dept_no = d.dept_no
+-- where d.dept_name = 'Sales';
+
+--sales and development
 select e.emp_no, e.last_name, e.first_name, d.dept_name 
 from employees as e
 left join dept_employees as de on 
 e.emp_no = de.emp_no
 left join departments as d on 
 de.dept_no = d.dept_no
-where d.dept_name = 'Sales';
-
+where d.dept_name = 'Sales' or d.dept_name = 'Development';
