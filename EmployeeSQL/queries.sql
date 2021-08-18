@@ -28,7 +28,17 @@
 -- on de.emp_no = e.emp_no;
 
 --hercules and b(5)
-select e.first_name, e.last_name, e.sex
+-- select e.first_name, e.last_name, e.sex
+-- from employees as e
+-- where e.first_name = 'Hercules' 
+-- and e.last_name like 'B%';
+
+--sales(6)
+select e.emp_no, e.last_name, e.first_name, d.dept_name 
 from employees as e
-where e.first_name = 'Hercules' 
-and e.last_name like 'B%';
+left join dept_employees as de on 
+e.emp_no = de.emp_no
+left join departments as d on 
+de.dept_no = d.dept_no
+where d.dept_name = 'Sales';
+
